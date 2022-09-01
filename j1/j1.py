@@ -11,10 +11,10 @@ def getPart(word : string) -> string:
 	for i in word[::-1]:
 		if i in vocals:
 			if vocalgroups < 2:
-
+				pass
 			lastwasvocal = True
 		else:
-
+			pass
 
 words = ["Baum", "Traum", "singen", "klingen"]
 for i in words:
