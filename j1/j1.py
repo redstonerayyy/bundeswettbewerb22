@@ -2,20 +2,35 @@ import string
 
 vocals = "aeiou"
 
-def getPart(word : string) -> string:
-	word = word.lower()
+# generate a list containing parts which are consonants or strings
+def splitvocskons(word : string) -> string:
+	parts = []
 	part = ""
-	waitonvocal = ""
-	vokalgroups = 0
-	lastwasvocal = False
-	for i in word[::-1]:
-		if i in vocals:
-			if vocalgroups < 2:
-				pass
-			lastwasvocal = True
+	for i in word:
+		if part == "": # needed so no indexerror
+			part = i
 		else:
-			pass
+			# check what type it is
+			# then what the last letter was
+			# and either start new or append
+			if i in vocals:
+				if part[-1] in vocals:
+					part += i
+				else:
+					parts.append(part)
+					part = i 
+			else:
+				if part[-1] in vocals:
+					parts.append(part)
+					part = i
+				else:
+					part += i
+	parts.append(part) # append last part
 
-words = ["Baum", "Traum", "singen", "klingen"]
+	return parts
+
+# words = ["Baum", "Traum", "singen", "klingen"]
+# for i in words:
+# 	part = i.
 for i in words:
-	part = i.
+	print(splitvocskons("Baum"))
