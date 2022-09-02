@@ -1,7 +1,7 @@
-- [ ] j1
-- [ ] j2
-- [ ] a1
-- [ ] a2
-- [ ] a3
-- [ ] a4
-- [ ] a5
+- [x] j1 [ ] checked
+- [ ] j2 [ ] checked
+- [ ] a1 [ ] checked
+- [ ] a2 [ ] checked
+- [ ] a3 [ ] checked
+- [ ] a4 [ ] checked
+- [ ] a5 [ ] checked
