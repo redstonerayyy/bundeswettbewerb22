@@ -2,7 +2,7 @@ import string
 
 vocals = "aeiou"
 
-# generate a list containing parts which are consonants or strings
+# generate a list containing parts which are consonants or vocals
 def splitvocskons(word : string) -> string:
 	parts = []
 	part = ""
@@ -29,8 +29,68 @@ def splitvocskons(word : string) -> string:
 
 	return parts
 
-# words = ["Baum", "Traum", "singen", "klingen"]
-# for i in words:
-# 	part = i.
+# generate the part of the word which will be the rime part
+# this part will be checked againt the other rime parts
+def getrimepart(parts): # take in list of word
+	rime = []
+	vocalparts = 0
+
+	# add parts until 2 vocal parts have been added
+	# start from the end
+	for i in parts[::-1]:
+		if vocalparts > 1:
+			break
+		if i[0] in vocals:
+			vocalparts += 1
+			rime.append(i)
+		else:
+			rime.append(i)
+
+	# turn order, so it is right again
+	rime = rime[::-1]
+	# remove leading consonant part if present
+	if rime[0][0] not in vocals:
+		rime.remove(rime[0])
+	# make it to string
+	rime = "".join(rime)
+	return rime
+
+# check rule 2 and 3
+def checkrime(rimepart, fullword):
+	# check if group is large enough
+	if (len(rimepart) + len(fullword) // 2) < len(fullword): # half of word is ok
+		return False
+
+	# check if it is the whole word
+	if rimepart == fullword:
+		return False
+
+	return True
+
+# read words from file
+def getwords(filename):
+	return ["Baum", "Traum", "singen", "klingen"]
+
+# main program
+#remove duplicates from words
+wordsbase = list(dict.fromkeys(getwords("")))
+words = []
+
+# generate rime parts and list structure
+for word in wordsbase:
+	rime = getrimepart(splitvocskons(word.lower()))
+	if checkrime(rime, word.lower()):
+		words.append([word, rime, []])
+
+print(words)
+# check rime parts against each other
+for i in range(len(words)):
+	j = i + 1
+	while(j < len(words)):
+		if words[i][1] == words[j][1]:
+			words[i][2].append(words[j][0])
+		j += 1
+
 for i in words:
-	print(splitvocskons("Baum"))
+	for j in i[2]:
+		print(i[0],":",j)
