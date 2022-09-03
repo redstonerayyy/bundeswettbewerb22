@@ -79,8 +79,9 @@ def getwords(filename):
 		return lines
 
 # main program
-for i in range(3):
+for i in range(3): # reimerei(i).txt
 	#remove duplicates from words
+	print(f"----reimerei{i}.txt----")
 	wordsbase = list(dict.fromkeys(getwords(f"reimerei{i}.txt")))
 	words = []
 

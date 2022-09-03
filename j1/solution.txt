@@ -1,8 +1,11 @@
+----reimerei0.txt----
 bemühen : glühen
 Biene : Hygiene
 Biene : Schiene
 Hygiene : Schiene
 Knecht : Recht
+----reimerei1.txt----
 Bildnis : Wildnis
 Brote : Note
+----reimerei2.txt----
 Epsilon : Ypsilon
