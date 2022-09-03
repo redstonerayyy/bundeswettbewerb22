@@ -1,0 +1,19 @@
+------stoerung0.txt------
+Stoerung: ['das', '_', 'mir', '_', '_', '_', 'vor']
+Linenumber: 440 Appearances: 1 Line: »Das kommt mir gar nicht richtig vor,« sagte die arme Alice, und Thränen
+------stoerung1.txt------
+Stoerung: ['ich', 'muß', '_', 'clara', '_']
+Linenumber: 425 Appearances: 1 Line: falsch! Ich muß in Clara verwandelt sein! Ich will doch einmal sehen, ob
+Linenumber: 441 Appearances: 1 Line: kamen ihr in die Augen, als sie weiter sprach: »Ich muß doch Clara sein,
+------stoerung2.txt------
+Stoerung: ['fressen', '_', 'gern', '_']
+Linenumber: 214 Appearances: 2 Line: gern Spatzen? Fressen Katzen gern Spatzen? Fressen Spatzen gern Katzen?«
+------stoerung3.txt------
+Stoerung: ['das', '_', 'fing', '_']
+Linenumber: 2319 Appearances: 1 Line: in Ordnung, und das Spiel fing an.
+Linenumber: 3301 Appearances: 1 Line: oft in der Zeitung am Ende eines Verhörs gelesen: 'Das Publikum fing an,
+------stoerung4.txt------
+Stoerung: ['ein', '_', '_', 'tag']
+------stoerung5.txt------
+Stoerung: ['wollen', '_', 'so', '_', 'sein']
+Linenumber: 2185 Appearances: 1 Line: »Wollen Sie so gut sein, mir zu sagen,« sprach Alice etwas furchtsam,
