@@ -1,6 +1,6 @@
 import string
 
-vocals = "aeiou"
+vocals = "aeiouüäö"
 
 # generate a list containing parts which are consonants or vocals
 def splitvocskons(word : string) -> string:
@@ -69,28 +69,35 @@ def checkrime(rimepart, fullword):
 
 # read words from file
 def getwords(filename):
-	return ["Baum", "Traum", "singen", "klingen"]
+	# read data and split at newline
+	with open(filename) as file:
+		data = file.read()
+		lines = data.split("\n")
+		# remove empty strings
+		while "" in lines:
+			lines.remove("")
+		return lines
 
 # main program
-#remove duplicates from words
-wordsbase = list(dict.fromkeys(getwords("")))
-words = []
+for i in range(3):
+	#remove duplicates from words
+	wordsbase = list(dict.fromkeys(getwords(f"reimerei{i}.txt")))
+	words = []
 
-# generate rime parts and list structure
-for word in wordsbase:
-	rime = getrimepart(splitvocskons(word.lower()))
-	if checkrime(rime, word.lower()):
-		words.append([word, rime, []])
+	# generate rime parts and list structure
+	for word in wordsbase:
+		rime = getrimepart(splitvocskons(word.lower()))
+		if checkrime(rime, word.lower()):
+			words.append([word, rime, []])
 
-print(words)
-# check rime parts against each other
-for i in range(len(words)):
-	j = i + 1
-	while(j < len(words)):
-		if words[i][1] == words[j][1]:
-			words[i][2].append(words[j][0])
-		j += 1
+	# check rime parts against each other
+	for i in range(len(words)):
+		j = i + 1
+		while(j < len(words)):
+			if words[i][1] == words[j][1]:
+				words[i][2].append(words[j][0])
+			j += 1
 
-for i in words:
-	for j in i[2]:
-		print(i[0],":",j)
+	for i in words:
+		for j in i[2]:
+			print(i[0],":",j)
