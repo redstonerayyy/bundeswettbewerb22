@@ -1,11 +1,13 @@
 from audioop import mul
 import multiprocessing
 
+# calculate some times
 beforework = 9 * 60
 afterwork = 7 * 60
 nowork = afterwork + beforework
 work = 8 * 60
 
+# read from file
 def gettasks(filename):
     with open(filename) as file:
         lines = file.read().split("\n")
@@ -22,6 +24,7 @@ def gettasks(filename):
 
         return tasks
 
+# using nice sorting lambdas from STO
 def sortbystarttime(arr):
     arr.sort(key=lambda x: x[0]) # sort array by first element of tasks [start, duration]
 
@@ -31,6 +34,7 @@ def sortbyduration(arr):
 def sortbywaitingtime(arr, minute):
     arr.sort(key=lambda x: minute - x[0])
 
+# FIFO sheduling, jobs are done in the order they get requested
 def starttime():
     # by starttime
     # it is not really clear if tasks
@@ -43,6 +47,12 @@ def starttime():
     workduration = 0
     noworktime = 540
 
+
+    # count up the minutes
+    # check each minute if new tasks need to be added
+    # the list of tasks does not get sorted
+    # keep track on how long he worked and finish a task if it is larger
+    # skip his 16 hours were he does not work
     while len(finishedtasks) < len(tasks):
         for i in range(work):
             # add tasks
@@ -87,6 +97,12 @@ def durationtime():
     workduration = 0
     noworktime = 540
 
+    # count up the minutes
+    # check each minute if new tasks need to be added
+    # the list of tasks can only be sorted new, after one task finished 
+    # sorting is done so that short tasks come first
+    # keep track on how long he worked and finish a task if it is larger
+    # skip his 16 hours were he does not work
     while len(finishedtasks) < len(tasks):
         for i in range(work):
             # add tasks
@@ -135,6 +151,13 @@ def optimized(jobcount = 0):
     busytime = 0
     fastjobs = 0
 
+    # count up the minutes
+    # check each minute if new tasks need to be added
+    # the list of tasks can only be sorted new, after one task finished 
+    # sorting is done so that short tasks come first
+    # keep track on how long he worked and finish a task if it is larger
+    # skip his 16 hours were he does not work
+    # each n tasks the longest task is done
     while len(finishedtasks) < len(tasks):
         for i in range(work):
             # add tasks
