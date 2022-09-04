@@ -1,25 +1,18 @@
 ---fahrradwerkstatt0.txt---
 -----------------------------
---optimized with fcount 30--
+--FIFO--
+Taskcount: 114
+Average: 32753.5
+Hightest: 68771
+Below Average: 63
+Below Half of Hightest: 63
+
+--optimized with fcount 21--
 Taskcount: 114
 Average: 18406.14912280702
 Hightest: 174091
 Below Average: 80
 Below Half of Hightest: 110
-
---optimized with fcount 10--
-Taskcount: 114
-Average: 18968.754385964912
-Hightest: 143941
-Below Average: 80
-Below Half of Hightest: 108
-
---optimized with busytime switcher--
-Taskcount: 114
-Average: 33266.76315789474
-Hightest: 68771
-Below Average: 62
-Below Half of Hightest: 62
 
 --SJF--
 Taskcount: 114
@@ -28,12 +21,12 @@ Hightest: 188734
 Below Average: 87
 Below Half of Hightest: 111
 
---FIFO--
+--optimized with fcount 4--
 Taskcount: 114
-Average: 32753.5
-Hightest: 68771
-Below Average: 63
-Below Half of Hightest: 63
+Average: 18968.754385964912
+Hightest: 143941
+Below Average: 80
+Below Half of Hightest: 108
 
 
 ---------------------------------
@@ -41,33 +34,26 @@ Below Half of Hightest: 63
 
 ---fahrradwerkstatt1.txt---
 -----------------------------
---optimized with fcount 30--
-Taskcount: 766
-Average: 14958.96997389034
-Hightest: 296681
-Below Average: 681
-Below Half of Hightest: 733
-
---optimized with fcount 10--
-Taskcount: 766
-Average: 19363.241514360314
-Hightest: 256345
-Below Average: 630
-Below Half of Hightest: 726
-
---optimized with busytime switcher--
-Taskcount: 766
-Average: 63901.98955613577
-Hightest: 128321
-Below Average: 388
-Below Half of Hightest: 388
-
 --SJF--
 Taskcount: 766
 Average: 11878.485639686683
 Hightest: 433563
 Below Average: 702
 Below Half of Hightest: 753
+
+--optimized with fcount 22--
+Taskcount: 766
+Average: 14958.96997389034
+Hightest: 296681
+Below Average: 681
+Below Half of Hightest: 733
+
+--optimized with fcount 7--
+Taskcount: 766
+Average: 19363.241514360314
+Hightest: 256345
+Below Average: 630
+Below Half of Hightest: 726
 
 --FIFO--
 Taskcount: 766
@@ -82,26 +68,12 @@ Below Half of Hightest: 392
 
 ---fahrradwerkstatt2.txt---
 -----------------------------
---optimized with fcount 30--
-Taskcount: 186
-Average: 16481.145161290322
-Hightest: 171755
-Below Average: 148
-Below Half of Hightest: 176
-
 --optimized with fcount 10--
 Taskcount: 186
 Average: 18438.182795698925
 Hightest: 141515
 Below Average: 144
 Below Half of Hightest: 173
-
---optimized with busytime switcher--
-Taskcount: 186
-Average: 51661.8064516129
-Hightest: 110973
-Below Average: 86
-Below Half of Hightest: 96
 
 --SJF--
 Taskcount: 186
@@ -117,32 +89,32 @@ Hightest: 110973
 Below Average: 88
 Below Half of Hightest: 98
 
+--optimized with fcount 31--
+Taskcount: 186
+Average: 16481.145161290322
+Hightest: 171755
+Below Average: 148
+Below Half of Hightest: 176
+
 
 ---------------------------------
 ---------------------------------
 
 ---fahrradwerkstatt3.txt---
 -----------------------------
---optimized with fcount 30--
+--FIFO--
 Taskcount: 220
-Average: 17539.609090909093
-Hightest: 260977
-Below Average: 182
-Below Half of Hightest: 209
+Average: 30028.927272727273
+Hightest: 60821
+Below Average: 86
+Below Half of Hightest: 92
 
---optimized with fcount 10--
+--optimized with fcount 11--
 Taskcount: 220
 Average: 17748.081818181818
 Hightest: 200409
 Below Average: 181
 Below Half of Hightest: 208
-
---optimized with busytime switcher--
-Taskcount: 220
-Average: 30325.53181818182
-Hightest: 60821
-Below Average: 88
-Below Half of Hightest: 89
 
 --SJF--
 Taskcount: 220
@@ -151,12 +123,12 @@ Hightest: 382016
 Below Average: 190
 Below Half of Hightest: 214
 
---FIFO--
+--optimized with fcount 3--
 Taskcount: 220
-Average: 30028.927272727273
-Hightest: 60821
-Below Average: 86
-Below Half of Hightest: 92
+Average: 17539.609090909093
+Hightest: 260977
+Below Average: 182
+Below Half of Hightest: 209
 
 
 ---------------------------------
@@ -164,27 +136,6 @@ Below Half of Hightest: 92
 
 ---fahrradwerkstatt4.txt---
 -----------------------------
---optimized with fcount 30--
-Taskcount: 90
-Average: 42184.35555555556
-Hightest: 363155
-Below Average: 72
-Below Half of Hightest: 81
-
---optimized with fcount 10--
-Taskcount: 90
-Average: 42657.688888888886
-Hightest: 261035
-Below Average: 68
-Below Half of Hightest: 77
-
---optimized with busytime switcher--
-Taskcount: 90
-Average: 74641.04444444444
-Hightest: 167059
-Below Average: 54
-Below Half of Hightest: 57
-
 --SJF--
 Taskcount: 90
 Average: 42200.9
@@ -198,6 +149,20 @@ Average: 74427.52222222222
 Hightest: 167059
 Below Average: 54
 Below Half of Hightest: 57
+
+--optimized with fcount 2--
+Taskcount: 90
+Average: 42657.688888888886
+Hightest: 261035
+Below Average: 68
+Below Half of Hightest: 77
+
+--optimized with fcount 28--
+Taskcount: 90
+Average: 42184.35555555556
+Hightest: 363155
+Below Average: 72
+Below Half of Hightest: 81
 
 
 ---------------------------------

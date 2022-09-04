@@ -1,5 +1,5 @@
-from audioop import add
-
+from audioop import mul
+import multiprocessing
 
 beforework = 9 * 60
 afterwork = 7 * 60
@@ -72,7 +72,7 @@ def starttime():
         minute += nowork # skip night and freetime
         noworktime += nowork
 
-
+    print("--FIFO--")
     printstats(finishedtasks)
 
 def durationtime():
@@ -118,7 +118,7 @@ def durationtime():
         minute += nowork # skip night and freetime
         noworktime += nowork
 
-
+    print("--SJF--")
     printstats(finishedtasks)
 
 def optimized(jobcount = 0):
@@ -155,9 +155,11 @@ def optimized(jobcount = 0):
                             fastjobs = 0
                     
                     else:
-                        if (minute - copy[-1][1]) > busytime:
-                            el = tasklist.pop(tasklist.index(copy[-1]))
-                            tasklist.insert(0, el)
+                        pass
+                        # seems just bad in test, maybe a bug, maybe it is
+                        # if (minute - copy[-1][1]) > busytime:
+                        #     el = tasklist.pop(tasklist.index(copy[-1]))
+                        #     tasklist.insert(0, el)
                     
 
             # check if tasks is finished
@@ -185,6 +187,7 @@ def optimized(jobcount = 0):
         minute += nowork # skip night and freetime
         noworktime += nowork
 
+    print(f"--optimized with fcount {fastjobs}--")
     printstats(finishedtasks)
 
 
@@ -224,16 +227,41 @@ for i in range(5):
 
     print(f"---fahrradwerkstatt{i}.txt---")
     print("-----------------------------")
-    print("--optimized with fcount 30--")
-    optimized(30)
-    print("--optimized with fcount 10--")
-    optimized(10)
-    print("--optimized with busytime switcher--")
-    optimized()
-    print("--SJF--")
-    durationtime()
-    print("--FIFO--")
-    starttime()
+
+    
+    jobs = []
+
+    process = multiprocessing.Process(
+        target=optimized, 
+        args=[30]
+    )
+    jobs.append(process)
+
+    process = multiprocessing.Process(
+        target=optimized, 
+        args=[10]
+    )
+    jobs.append(process)
+
+    process = multiprocessing.Process(
+        target=durationtime,
+    )
+    jobs.append(process)
+
+    process = multiprocessing.Process(
+        target=starttime
+    )
+    jobs.append(process)
+
+    
+    for j in jobs:
+        j.start()
+    
+    for j in jobs:
+        j.join()
+    
+    # print("--optimized with busytime switcher--")
+    # optimized()
     print("")
     print("---------------------------------")
     print("---------------------------------")
