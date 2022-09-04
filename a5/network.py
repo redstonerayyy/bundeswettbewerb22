@@ -6,13 +6,17 @@ class Graph:
         self.connections.sort(key=lambda x: x[0])
         self.nodes = {}
 
-
+        # generate dictionary where each node is a key
+        # and all nodes it has connections to are stored
+        # in a list as the value
         for i in range(len(self.connections)):
             if self.connections[i][0] in self.nodes:
                 self.nodes[self.connections[i][0]].append(self.connections[i][1])
             else:
                 self.nodes[self.connections[i][0]] = [self.connections[i][1]]
 
+        # check which nodes are not connected
+        # this will add the same nodes multiple times
         unconnected = []
         for i in self.nodes:
             for j in self.nodes[i]:
@@ -20,16 +24,22 @@ class Graph:
                     unconnected.append(j)
         
         # why is there a 44 in the first file?
+        # this will set each unconnected note to an empty list
+        # it will set each multiple times as said above
         for i in unconnected:
             self.nodes[i] = []
 
 
     def BFS(self, vertex, target):
+        # https://en.wikipedia.org/wiki/Breadth-first_search to understand better
         queque = []
         paths = []
         marks = []
+        # queque holds all vertices
         queque.append([vertex])
+        # holds all paths
         paths.append([vertex])
+        # mark vertices so no loops occur
         marks.append(vertex)
 
         while queque:
