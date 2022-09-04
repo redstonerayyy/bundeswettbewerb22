@@ -30,7 +30,7 @@ class Crystal:
         self.position = [
             randint(0, options["sizeoffield"][0]), 
             randint(0, options["sizeoffield"][1])
-        ]
+        ] # x,y
 
         # tick when to start
         self.starttime = randint(0, options["maxtimeoffset"])
@@ -55,13 +55,16 @@ class Crystal:
         if tick - self.starttime < 0:
             return False
 
-        tick += self.starttime
         self.tick = tick - self.starttime
+        tick -= self.starttime
         self.middle = [self.growthfactors[3] * self.tick, self.growthfactors[0] * tick] # left and top times tickcount
         
         # get widths
         xwidth = self.growthfactors[1] * self.tick + self.growthfactors[3] * self.tick + 1
         ywidth = self.growthfactors[0] * self.tick + self.growthfactors[2] * self.tick + 1
+
+        self.xwidth = xwidth
+        self.ywidth = ywidth
 
         # generate form
         self.form = []
@@ -82,7 +85,7 @@ class Crystal:
             self.growthfactors[1] * self.growthfactors[2] * self.tick ** 2,
             self.growthfactors[2] * self.growthfactors[3] * self.tick ** 2,
             self.growthfactors[3] * self.growthfactors[0] * self.tick ** 2,
-        ]) // (tick + sharpness ** 2)
+        ]) // ((tick + sharpness ** 2) if (tick + sharpness ** 2) > 0 else 1) 
 
         # print(threshhold)
         
@@ -108,7 +111,7 @@ class Crystal:
         # print(xwidth, ywidth)
         # printarr(self.form)
         # printarr(self.formmarks)
-        self.printself(self.formmarks)
+        # self.printself(self.formmarks)
         return True
     
     def printself(self, arr):

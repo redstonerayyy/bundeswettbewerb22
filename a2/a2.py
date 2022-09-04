@@ -13,23 +13,20 @@ random.seed(10)
 # main code
 
 # config
-amountofc = 5 
+amountofc = 1
 # not this amount will grown, 
 # it will generate as many crystal origins which can be denied by
 # other crystals
-xsize = 40
-ysize = 40
+xsize = 20
+ysize = 20
 
 # generate field
 field = []
 
-for i in range(ysize):
+for y in range(ysize):
     field.append([])
-    for j in range(xsize):
-        field[i].append([])
-
-printarr(field)
-
+    for x in range(xsize):
+        field[y].append([])
 
 options = makeoptions([xsize - 1, ysize - 1], 5, 3, 10) # -1 because it is inclusive
 
@@ -39,11 +36,11 @@ for i in range(amountofc):
     crystals.append(Crystal(i, options))
 
 for crystal in crystals:
-    if crystal.applytick(5): # if it generated something we can merge it
+    if crystal.applytick(4): # if it generated something we can merge it
         field = mergecrystaltofield(field, crystal)
 
 
-
+printarr(field)
 
 
 
