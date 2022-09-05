@@ -3,6 +3,14 @@
 from random import randint
 import random
 
+def checkiffilled(field):
+    for row in field:
+        for element in row:
+            if len(element) == 0:
+                return False
+
+    return True
+
 def printarr(arr):
     for i in arr:
         print(i)
