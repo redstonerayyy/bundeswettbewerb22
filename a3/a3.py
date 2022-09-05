@@ -1,4 +1,4 @@
-from sudoku import getallpermutations, getdiagonals, getsquare, getvertical, isValidSudoku, isequal, printarr, rotatesudoku
+from sudoku import getallpermutations, getdiagonals, getsquare, getvertical, isValidSudoku, isequal, printarr, rotatesudoku, swaphorizontal, swapvertical
 
 def readsudoku(filename):
     with open(filename, "r", encoding="utf-8-sig") as file:
@@ -30,7 +30,9 @@ def readsudoku(filename):
 # main code
 for i in range(1):
     sudoku1, sudoku2 = readsudoku(f"sudoku{i}.txt")
-    printarr(sudoku1)
-    print("-------")
-    print(isValidSudoku(sudoku1))
-
+    # printarr(sudoku1)
+    # print(isValidSudoku(sudoku1))
+    # printarr(swapvertical(sudoku1, 0, 1))
+    # print(isValidSudoku(sudoku1))
+    # printarr(swaphorizontal(sudoku1, 0, 1))
+    # print(isValidSudoku(sudoku1))

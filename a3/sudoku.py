@@ -53,6 +53,13 @@ def getdiagonals(board):
 
     return [ diagonal1, diagonal2 ]
 
+def setsquare(board, x, y, square):
+    for i in range(3 * y, 3 + 3 * y):
+        for j in range(3 * x, 3 + 3 * x):
+            board[i][j] = square[i - 3 * y][j - 3 * x]
+
+    return board
+
 def getsquare(board, x, y): # 0, 1 or 2
     square = []
     for i in range(3 * y, 3 + 3 * y):
@@ -67,6 +74,16 @@ def getsquare(board, x, y): # 0, 1 or 2
 
 def gethorizontal(board, y):
     return board[y]
+
+def sethorizontal(board, y, horizontal):
+    board[y] = horizontal
+    return board
+
+def setvertical(board, x, vertical):
+    for y in range(9):
+        board[y][x] = vertical[y]
+    
+    return board
 
 def getvertical(board, x):
     vertical = []
@@ -89,7 +106,8 @@ def rotatesudoku(board, rotateright=True):
     if not rotateright:
         rotated = rotated[::-1]
     
-    return rotated
+    board = rotated
+    return board
 
 def isequal(s1, s2):
     for y in range(9):
@@ -99,9 +117,25 @@ def isequal(s1, s2):
     
     return True
 
-def getallpermutations(board):
-    print(board)
-
 def printarr(arr):
     for i in arr:
         print(i)
+
+def swapvertical(board, x1,x2):
+    v1 = getvertical(board, x1)
+    v2 = getvertical(board, x2)
+    setvertical(board, x2, v1)
+    setvertical(board, x1, v2)
+
+    return board
+
+def swaphorizontal(board, y1, y2):
+    h1 = gethorizontal(board, y1)
+    h2 = gethorizontal(board, y2)
+    sethorizontal(board, y1, h2)
+    sethorizontal(board, y2, h1)
+
+    return board
+
+def getallpermutations(board):
+    print(board)
