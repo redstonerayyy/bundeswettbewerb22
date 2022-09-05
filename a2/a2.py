@@ -14,7 +14,7 @@ from merge import mergecrystaltofield, emptyfield
 # main code
 
 # python a2.py {amount} {xsize} {ysize} {offset} {mingrowth} {maxgrowth}
-# python a2.py 2 20 20 0 2 10
+# python a2.py 30 70 70 0 4 8
 
 
 # config
@@ -29,6 +29,7 @@ ysize = 200
 timeoffset = 4
 mingrow = 1
 maxgrow = 4
+
 try:
     if sys.argv[1]:
         amountofc = int(sys.argv[1])
@@ -63,17 +64,29 @@ for i in range(amountofc):
 
 # perform growth for each tick and check when field is full
 tick = 0
+jump = True
 while True:
     field = emptyfield(ysize, xsize)
     for crystal in crystals:
         if crystal.applytick(tick): # if it generated something we can merge it
             field = mergecrystaltofield(field, crystal)
 
-    if checkiffilled(field):
+    if checkiffilled(field) and jump:
+        jump = False
+        tick -= 4 + 1
+
+    elif checkiffilled(field):
         break
     
-    tick += 1
+    else:
+        pass
 
+    if jump:
+        tick += 4
+    else:
+        tick += 1
+
+print(tick)
 
 # polish field
 for row in field:
@@ -84,23 +97,14 @@ for row in field:
             # first element has smallest strenth value
             row[i] = row[i][0][0]
         else:
-            row[i] = row[i][0][0]
+            if row[i]: # if it is empty list just let it be
+                # should only happen if checkfield was false
+                # which means testing
+                row[i] = row[i][0][0]
 
 
-print(tick)
+
 # generate image
-
-
-
-
-
-
-
-
-
-
-
-
 
 colors = {}
 for i in range(amountofc):
@@ -110,7 +114,10 @@ data = []
 
 for i in range(len(field)):
     for j in range(len(field[i])):
-        data.append(colors[field[i][j]])
+        if field[i][j] != []: # see in polish field, its for testing
+            data.append(colors[field[i][j]])
+        else:
+            data.append(0)
 
 img = Image.new('L', (xsize, ysize))
 img.putdata(data)

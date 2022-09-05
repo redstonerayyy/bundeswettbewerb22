@@ -14,7 +14,9 @@ def mergecrystaltofield(field : list, crystal : Crystal):
                 if (y + offset[1] < 0) or (x + offset[0] < 0):
                     raise IndexError("raised to prevent adding to end of list")
 
-                field[y + offset[1]][x + offset[0]].append([crystal.id, crystal.form[y][x]])
+                if crystal.formmarks[y][x]:
+                    field[y + offset[1]][x + offset[0]].append([crystal.id, crystal.form[y][x]])
+            
             except IndexError:
                 pass
     
