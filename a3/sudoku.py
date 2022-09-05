@@ -1,24 +1,107 @@
 # https://www.geeksforgeeks.org/check-if-given-sudoku-solution-is-valid-or-not/
 
-def isinRange(board):
+def isValidSudoku(board):
+    if not isinRange(board):
+        return "range"
+    
+    # check vertical
+    for i in range(9):
+        for j in range(9):
+            if getvertical(board, i).count(j + 1) > 1:
+                return "vertical"
 
-    for i in range(0, 9):
-        for j in range(0, 9):
+    # check horizontal
+    for i in range(9):
+        for j in range(9):
+            if gethorizontal(board, i).count(j + 1) > 1:
+                return "horizontal"
+    
+    # check squares
+    for y in range(3):
+        for x in range(3):
+            square = getsquare(board, x, y)
+            for i in range(9):
+                if square.count(i + 1) > 1:
+                    return "squares"
+
+    # diagonals are not valid in the sudokus so they probably
+    # should not be checked
+    # check diagonals
+    # for diagonal in getdiagonals(board):
+    #     for i in range(9):
+    #         if diagonal.count(i + 1) > 1:
+    #             return "diagonals"
+
+    return "valid"
+
+def isinRange(board):
+    for y in range(9):
+        for x in range(9):
             # check if in range
-            if ((board[i][j] <= 0) or
-                (board[i][j] > 9)):
+            if (board[y][x] < 0) or (board[y][x] > 9):
                 return False
 
     return True
- 
-def isValidSudoku(board):
-    if (isinRange(board) == False):
-        return False
+
+def getdiagonals(board):
+    diagonal1 = []
+    for i in range(9):
+        diagonal1.append(board[i][i])
+    diagonal2 = []
+    for y in range(9):
+        diagonal2.append(board[y][8-y])
+
+    return [ diagonal1, diagonal2 ]
+
+def getsquare(board, x, y): # 0, 1 or 2
+    square = []
+    for i in range(3 * y, 3 + 3 * y):
+        line = []
+        for j in range(3 * x, 3 + 3 * x):
+            line.append(board[i][j])
+        
+        square.append(line)
+
+    return square
+
+
+def gethorizontal(board, y):
+    return board[y]
+
+def getvertical(board, x):
+    vertical = []
+
+    for y in range(9):
+        vertical.append(board[y][x])
+    
+    return vertical
+
+
+def rotatesudoku(board, rotateright=True):
+    rotated = []
+
+    for x in range(9):
+        if rotateright:
+            rotated.append(getvertical(board, x)[::-1])
+        else:
+            rotated.append(getvertical(board, x))
+
+    if not rotateright:
+        rotated = rotated[::-1]
+    
+    return rotated
+
+def isequal(s1, s2):
+    for y in range(9):
+        for x in range(9):
+            if s1[y][x] != s2[y][x]:
+                return False
     
     return True
 
-def isequal(s1, s2):
-    pass
-
 def getallpermutations(board):
-    print(isValidSudoku(board[:]))
+    print(board)
+
+def printarr(arr):
+    for i in arr:
+        print(i)
