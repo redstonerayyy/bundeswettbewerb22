@@ -1,5 +1,9 @@
 
 
+import itertools
+from tabnanny import check
+
+
 def getcontainers(filename):
     with open(filename) as file:
         lines = file.readlines()
@@ -21,46 +25,42 @@ def getcontainers(filename):
 for k in range(4):
     # main code
     rules = getcontainers(f"container{k}.txt")
-    applied = [False] * len(rules)
+    
+    # get list of all containers
+    allcontainers = []
+    for rule in rules:
+        for i in rule:
+            allcontainers.append(i)
+    
+    # remove doubles by making it a set
+    allcontainers = set(allcontainers)
 
-    # start with first rule
-    # if nothing connects to this, then there can not be
-    # said with certainty, which is the biggest
-    containers = rules[0][:]
-    # keep count which rules are applied
-    applied[0] = True
+    # dependence dict, container as key and all that are smaller than it as value
+    dependence = {}
 
-    # repeat until nothing was changed
-    # then either all rules are fullfilled or
-    # it is impossible to do so
-    while True:
-        change = False
-        for i in range(len(rules)):
-            if not applied[i]:
-                # apply unapplied rules
-                for j in range(len(containers)):
-                    # search for a position which is either first or second of rule
-                    if containers[j] in rules[i]:
-                        # is first
-                        if rules[i][0] == containers[j]:
-                            if rules[i][1] in containers: # remove so no doubles
-                                containers.remove(rules[i][1])
-                            containers.insert(j + 1, rules[i][1]) # insert after
-                        # is second
-                        else:
-                            if rules[i][0] in containers: # remove so no doubles
-                                containers.remove(rules[i][0])
-                            containers.insert(j, rules[i][0]) # insert before
+    # add to dependence
+    for rule in rules:
+        if rule[0] in dependence:
+            dependence[rule[0]].append(rule[1]) # 0 bigger than 1
+        else:
+            dependence[rule[0]] = [rule[1]]
 
-                        # mark rule, change happened 
-                        applied[i] = True
-                        change = True
-                        break
-        # applieng rules over
-        if not change:
-            break
-
+    
     print(f"----container{k}.txt----")
-    print(containers)
-    # returns True if all rules were applied
-    print(min(applied))
+    
+    # iterate over the tree for each container
+    # using BFS. mark each container
+    for container in dependence:
+        smaller = { container }
+        queque = [container]
+        checked = []
+        while queque:
+            con = queque.pop(0)
+            checked.append(con)
+            for c in dependence[con]:
+                smaller.add(c)
+                if c in dependence:
+                    queque.append(c)
+
+        if len(smaller) == len(allcontainers):
+            print(f"largest is container: {container}")
