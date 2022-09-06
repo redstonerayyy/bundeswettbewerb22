@@ -1,9 +1,3 @@
-
-
-import itertools
-from tabnanny import check
-
-
 def getcontainers(filename):
     with open(filename) as file:
         lines = file.readlines()
