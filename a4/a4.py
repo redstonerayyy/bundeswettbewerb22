@@ -1,4 +1,3 @@
-from audioop import mul
 import multiprocessing
 
 # calculate some times

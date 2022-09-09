@@ -41,7 +41,7 @@ for k in range(4):
 
     
     print(f"----container{k}.txt----")
-    
+    print(dependence)
     # iterate over the tree for each container
     # using BFS. mark each container
     for container in dependence:

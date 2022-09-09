@@ -25,6 +25,7 @@ def makeregex(distortion):
             diss[i] = matchword
     # generate pattern
     regexstring = " ".join(diss)
+    print(regexstring)
     regex = re.compile(regexstring, re.IGNORECASE) # ignore case
     return regex
 
