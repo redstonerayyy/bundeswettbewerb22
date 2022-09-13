@@ -1,6 +1,6 @@
-#include <iostream>
-#include "getsudokus.hpp"
+#include "util.hpp"
 
 int main(){
-    std::cout << GetSudokus("sudoku0.txt") << std::endl;
+    std::vector<std::vector<int>> sudoku1 = GetSudokus("sudoku0.txt");
+    // PrintSudoku(sudoku1);
 }
