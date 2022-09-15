@@ -33,12 +33,12 @@ def makeregex(distortion):
 
 for i in range(6):
     # main code
+    print(f"------stoerung{i}.txt------")
     alicelines, fulltext = getalicetext()
     distortion = getdistortion(f"stoerung{i}.txt")
     regex = makeregex(distortion)
 
     # for output
-    print(f"------stoerung{i}.txt------")
     print("Stoerung:", distortion)
 
     # line = "»Das kommt mir gar nicht richtig vor,"

@@ -79,7 +79,7 @@ def getwords(filename):
 		return lines
 
 # main program
-for i in range(3): # reimerei(i).txt
+for i in range(4): # reimerei(i).txt
 	#remove duplicates from words
 	print(f"----reimerei{i}.txt----")
 	wordsbase = list(dict.fromkeys(getwords(f"reimerei{i}.txt")))
@@ -99,6 +99,9 @@ for i in range(3): # reimerei(i).txt
 				words[i][2].append(words[j][0])
 			j += 1
 
+	count = 0
 	for i in words:
 		for j in i[2]:
 			print(i[0],":",j)
+			count += 1
+	print(f"{count} Rime Pairs!")
