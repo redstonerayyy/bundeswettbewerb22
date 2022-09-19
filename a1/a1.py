@@ -6,7 +6,7 @@ def getalicetext():
         lines = []
         for i in temp:
         # if not (i in ["\n", "", " "]): # remove certain occurences, messes up line count
-            lines.append(i)
+            lines.append(i.replace("\n", ""))
 
     return lines, " ".join(lines) # check per line and check full text
 
@@ -18,17 +18,17 @@ def getdistortion(filename):
 def makeregex(distortion):
     diss = distortion[:] # local variable so argument doesn't get messed up
     # regex for a word
-    matchword = "[a-zA-Z]+"
+    matchword = "[a-zA-ZöäüßÖÄÜ]+"
     # replace _ with regex matching any word
     for i in range(len(diss)):
         if diss[i] == "_":
             diss[i] = matchword
     # generate pattern
     regexstring = " ".join(diss)
+    regexstring = "(" + regexstring + ")"
     print(regexstring)
     regex = re.compile(regexstring, re.IGNORECASE) # ignore case
     return regex
-
 
 
 for i in range(6):
@@ -49,3 +49,11 @@ for i in range(6):
             print("Linenumber:", linenumber, "Appearances:", len(res),"Line:", line)
         
         linenumber += 1
+    
+    #fulltext
+    print("------Fulltext matching------")
+    res = re.findall(regex, fulltext)
+    if res:
+        print("Appearances:", len(res))
+        print("Text", res)
+        

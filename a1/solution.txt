@@ -1,19 +1,44 @@
 ------stoerung0.txt------
+(das [a-zA-ZöäüßÖÄÜ]+ mir [a-zA-ZöäüßÖÄÜ]+ [a-zA-ZöäüßÖÄÜ]+ [a-zA-ZöäüßÖÄÜ]+ vor)
 Stoerung: ['das', '_', 'mir', '_', '_', '_', 'vor']
 Linenumber: 440 Appearances: 1 Line: »Das kommt mir gar nicht richtig vor,« sagte die arme Alice, und Thränen
+------Fulltext matching------
+Appearances: 1
+Text ['Das kommt mir gar nicht richtig vor']
 ------stoerung1.txt------
+(ich muß [a-zA-ZöäüßÖÄÜ]+ clara [a-zA-ZöäüßÖÄÜ]+)
 Stoerung: ['ich', 'muß', '_', 'clara', '_']
 Linenumber: 425 Appearances: 1 Line: falsch! Ich muß in Clara verwandelt sein! Ich will doch einmal sehen, ob
 Linenumber: 441 Appearances: 1 Line: kamen ihr in die Augen, als sie weiter sprach: »Ich muß doch Clara sein,
+------Fulltext matching------
+Appearances: 2
+Text ['Ich muß in Clara verwandelt', 'Ich muß doch Clara sein']
 ------stoerung2.txt------
+(fressen [a-zA-ZöäüßÖÄÜ]+ gern [a-zA-ZöäüßÖÄÜ]+)
 Stoerung: ['fressen', '_', 'gern', '_']
 Linenumber: 214 Appearances: 2 Line: gern Spatzen? Fressen Katzen gern Spatzen? Fressen Spatzen gern Katzen?«
+------Fulltext matching------
+Appearances: 3
+Text ['Fressen Katzen gern Spatzen', 'Fressen Katzen gern Spatzen', 'Fressen Spatzen gern Katzen']
 ------stoerung3.txt------
+(das [a-zA-ZöäüßÖÄÜ]+ fing [a-zA-ZöäüßÖÄÜ]+)
 Stoerung: ['das', '_', 'fing', '_']
 Linenumber: 2319 Appearances: 1 Line: in Ordnung, und das Spiel fing an.
 Linenumber: 3301 Appearances: 1 Line: oft in der Zeitung am Ende eines Verhörs gelesen: 'Das Publikum fing an,
+------Fulltext matching------
+Appearances: 2
+Text ['das Spiel fing an', 'Das Publikum fing an']
 ------stoerung4.txt------
+(ein [a-zA-ZöäüßÖÄÜ]+ [a-zA-ZöäüßÖÄÜ]+ tag)
 Stoerung: ['ein', '_', '_', 'tag']
+Linenumber: 2293 Appearances: 1 Line: »Es ist -- es ist ein sehr schöner Tag!« sagte eine schüchterne Stimme
+------Fulltext matching------
+Appearances: 1
+Text ['ein sehr schöner Tag']
 ------stoerung5.txt------
+(wollen [a-zA-ZöäüßÖÄÜ]+ so [a-zA-ZöäüßÖÄÜ]+ sein)
 Stoerung: ['wollen', '_', 'so', '_', 'sein']
 Linenumber: 2185 Appearances: 1 Line: »Wollen Sie so gut sein, mir zu sagen,« sprach Alice etwas furchtsam,
+------Fulltext matching------
+Appearances: 1
+Text ['Wollen Sie so gut sein']
