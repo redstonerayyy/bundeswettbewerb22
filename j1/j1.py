@@ -56,7 +56,7 @@ def getrimepart(parts): # take in list of word
 	return rime
 
 # check rule 2 and 3
-def checkrime(rimepart, fullword):
+def checkrimepart(rimepart, fullword):
 	# check if group is large enough
 	if (len(rimepart) + len(fullword) // 2) < len(fullword): # half of word is ok
 		return False
@@ -88,7 +88,7 @@ for i in range(4): # reimerei(i).txt
 	# generate rime parts and list structure
 	for word in wordsbase:
 		rime = getrimepart(splitvocskons(word.lower()))
-		if checkrime(rime, word.lower()):
+		if checkrimepart(rime, word.lower()):
 			words.append([word, rime, []])
 
 	# check rime parts against each other
@@ -96,7 +96,8 @@ for i in range(4): # reimerei(i).txt
 		j = i + 1
 		while(j < len(words)):
 			if words[i][1] == words[j][1]:
-				words[i][2].append(words[j][0])
+				if not (words[i][1].lower() in words[j][1].lower() or words[j][1].lower() in words[i][1].lower()):
+					words[i][2].append(words[j][0])
 			j += 1
 
 	count = 0
