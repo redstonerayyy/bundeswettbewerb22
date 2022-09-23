@@ -96,7 +96,7 @@ for i in range(4): # reimerei(i).txt
 		j = i + 1
 		while(j < len(words)):
 			if words[i][1] == words[j][1]:
-				if not (words[i][1].lower() in words[j][1].lower() or words[j][1].lower() in words[i][1].lower()):
+				if not (words[i][0].lower() in words[j][0].lower() or words[j][0].lower() in words[i][0].lower()):
 					words[i][2].append(words[j][0])
 			j += 1
 
