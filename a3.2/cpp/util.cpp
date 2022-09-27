@@ -64,7 +64,14 @@ namespace Utils {
         }
     }
 
-    std::vector<int> line
+    std::vector<int> lineToVec(std::string line){
+        std::vector<std::string> numbersasstring = Utils::SplitString(line, " ");
+        std::vector<int> linenumbers;
+        for(int i = 0; i < numbersasstring.size(); ++i){
+            linenumbers.push_back(std::stoi(numbersasstring[i]));
+        }
+        return linenumbers;
+    }
 
     std::vector<std::vector<int>> GetSudokus(std::string filepath)
     {
@@ -73,14 +80,16 @@ namespace Utils {
 
         lines = Utils::RemoveFromVector(lines, { "", "\t", "\v", "\f", "\r", " ", "\n" });
         
-        for(auto line : lines){
-            std::cout << line << std::endl;
+        std::vector<std::vector<int>> s1;
+        std::vector<std::vector<int>> s2;
+
+        for(int i = 0; i < 9; ++i){
+            s1.push_back(lineToVec(lines[i]));
         }
 
-        for(auto line : lines){
-            
+        for(int i = 9; i < 18; ++i){
+            s1.push_back(lineToVec(lines[i]));
         }
-
 
         return std::vector<std::vector<int>>{{34}, {34}};
     }
