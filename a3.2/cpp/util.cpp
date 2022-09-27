@@ -44,6 +44,17 @@ namespace Utils {
         return base;
     }
 
+    std::string RemoveFromString(std::string base, std::vector<std::string> toremove){
+        for(int i = 0; i < base.length(); ++i){
+            for(int j = 0; j < toremove.size(); ++j){
+                if(base[i] == toremove[j]){
+                    base.erase(base.begin() + i);
+                }
+            }
+        }
+        return base;
+    }
+
     void PrintSudoku(std::vector<std::vector<int>> sudokutoprint){
         for(int i = 0; i < sudokutoprint.size(); ++i){
             for(int j = 0; j < sudokutoprint[i].size(); ++j){
@@ -53,14 +64,23 @@ namespace Utils {
         }
     }
 
+    std::vector<int> line
+
     std::vector<std::vector<int>> GetSudokus(std::string filepath)
     {
         std::string filecontents = Utils::readStringFromFile(filepath);
-        std::cout << filecontents << std::endl;
         std::vector<std::string> lines = Utils::SplitString(filecontents, "\n");
 
-        Utils::RemoveFromVector(lines, { "", "\t", "\v", "\f", "\r", " ", "\n" });
+        lines = Utils::RemoveFromVector(lines, { "", "\t", "\v", "\f", "\r", " ", "\n" });
         
+        for(auto line : lines){
+            std::cout << line << std::endl;
+        }
+
+        for(auto line : lines){
+            
+        }
+
 
         return std::vector<std::vector<int>>{{34}, {34}};
     }
