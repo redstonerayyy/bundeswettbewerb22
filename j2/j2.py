@@ -55,6 +55,8 @@ for k in range(4):
                 smaller.add(c)
                 if c in dependence:
                     queque.append(c)
+        
+        print(container, smaller)
 
         if len(smaller) == len(allcontainers):
             print(f"largest is container: {container}")

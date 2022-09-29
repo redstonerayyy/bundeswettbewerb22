@@ -62,9 +62,12 @@ def setsquare(board, x, y, square):
 
 def getsquare(board, x, y): # 0, 1 or 2
     square = []
+    print(range(3 * y, 3 + 3 * y))
     for i in range(3 * y, 3 + 3 * y):
         line = []
         for j in range(3 * x, 3 + 3 * x):
+            print(i, j)
+            print(board[i][j])
             line.append(board[i][j])
         
         square.append(line)

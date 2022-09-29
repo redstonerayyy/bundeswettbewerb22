@@ -32,7 +32,7 @@ for i in range(1):
     sudoku1, sudoku2 = readsudoku(f"sudoku{i}.txt")
     printarr(sudoku1)
     print(isValidSudoku(sudoku1))
-    printarr(swapnumbers(sudoku1, 6, 4))
+    printarr(getsquare(sudoku2, 0, 0))
     # print(isValidSudoku(sudoku1))
     # printarr(swaphorizontal(sudoku1, 0, 1))
     # print(isValidSudoku(sudoku1))
