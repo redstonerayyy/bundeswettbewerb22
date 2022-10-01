@@ -27,3 +27,11 @@ def sortbystarttime(arr):
 
 def sortbyduration(arr):
     arr.sort(key=lambda x: x[1]) # sort array by second element of tasks [start, duration]
+
+def gettaskaverage(finishedtasks):
+    _sum = 0
+    for task in finishedtasks:
+        print(task[-1]) 
+        _sum += task[-1]
+
+    return _sum / len(finishedtasks)

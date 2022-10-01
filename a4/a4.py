@@ -218,6 +218,7 @@ def printstats(finishedtasks):
     hightest = -1
     highs = []
     for i in finishedtasks:
+        print(i[2])
         addedwaitingtime += i[2]
         if i[2] > hightest:
             hightest = i[2]
@@ -242,7 +243,7 @@ def printstats(finishedtasks):
     print("")
 
 
-for i in range(5):
+for i in range(1):
     # get two lists
     tasks = gettasks(f"fahrradwerkstatt{i}.txt")
     sortbystarttime(tasks)
