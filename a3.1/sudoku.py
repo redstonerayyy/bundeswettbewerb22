@@ -1,3 +1,17 @@
+class Sudoku:
+    def __init__(self, sudokuarray ) -> None:
+        
+
+
+def isinRange(board):
+    for y in range(9):
+        for x in range(9):
+            # check if in range
+            if (board[y][x] < 0) or (board[y][x] > 9):
+                return False
+
+    return True
+
 # https://www.geeksforgeeks.org/check-if-given-sudoku-solution-is-valid-or-not/
 
 def isValidSudoku(board):
@@ -26,6 +40,7 @@ def isValidSudoku(board):
 
     # diagonals are not valid in the sudokus so they probably
     # should not be checked
+    
     # check diagonals
     # for diagonal in getdiagonals(board):
     #     for i in range(9):
@@ -33,15 +48,6 @@ def isValidSudoku(board):
     #             return "diagonals"
 
     return "valid"
-
-def isinRange(board):
-    for y in range(9):
-        for x in range(9):
-            # check if in range
-            if (board[y][x] < 0) or (board[y][x] > 9):
-                return False
-
-    return True
 
 def getdiagonals(board):
     diagonal1 = []
