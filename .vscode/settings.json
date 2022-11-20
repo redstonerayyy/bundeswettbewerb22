@@ -71,5 +71,6 @@
         "cfenv": "cpp",
         "typeindex": "cpp",
         "variant": "cpp"
-    }
+    },
+    "python.formatting.provider": "yapf"
 }
